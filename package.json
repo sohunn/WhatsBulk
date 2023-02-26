@@ -1,0 +1,30 @@
+{
+  "name": "whatsbulk",
+  "version": "1.0.0",
+  "description": "Send multiple messages by using just a phone number through WhatsApp",
+  "main": "./dist/index.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "lint": "eslint . --ext .ts --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enigma0884/WhatsBulk.git"
+  },
+  "keywords": [
+    "bulkmessage",
+    "whatsapp"
+  ],
+  "author": "Sohan Shashikumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/enigma0884/WhatsBulk/issues"
+  },
+  "homepage": "https://github.com/enigma0884/WhatsBulk#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "@typescript-eslint/parser": "^5.53.0",
+    "eslint": "^8.35.0",
+    "typescript": "^4.9.5"
+  }
+}
