@@ -1,23 +1,64 @@
 import { BulkMessagerConfig } from "./types";
+import { Browser, launch } from 'puppeteer';
+import { EventEmitter } from 'events';
 
-export default class BulkMessenger {
-  private readonly options: BulkMessagerConfig = {
-    numbers: [],
-    message: "",
-    selector: "",
-    selectorWaitTimeout: 30000,
-    interval: 5000
-  };
+export default class BulkMessenger extends EventEmitter {
+  public readonly options: BulkMessagerConfig;
+  protected browser!: Browser;
+  private successful = 0;
+  private failed = 0;
 
   constructor(options: BulkMessagerConfig) {
-    this.options = Object.assign(this.options, options);
+    super();
 
-    if (this.options.message.length === 0) {
+    if (options.message.length === 0) {
       throw new Error("An empty message cannot be sent");
     }
 
-    if (this.options.selector.length === 0) {
+    if (options.selector.length === 0) {
       throw new Error("An empty selector cannot be specified");
     }
+
+    this.options = options;
+  }
+
+  public async start() {
+    this.browser = await launch();
+    const page = await this.browser.newPage();
+
+    let payloadURL: string;
+    for (const number of this.options.numbers) {
+
+      payloadURL = `https://web.whatsapp.com/send/?phone=${number}&text=${encodeURIComponent(this.options.message)}&type=phone_number&app_absent=0`;
+      await page.goto(payloadURL);
+
+      try {
+        await page.waitForSelector(this.options.selector, { timeout: this.options.selectorWaitTimeout || 30000 });
+      } catch (err) {
+        this.emit('error', `Wait for specified selector timed out (>${this.options.selectorWaitTimeout || 30000}ms) skipping...`, err);
+        ++this.failed;
+        continue;
+      }
+
+      page.keyboard.press('Enter');
+      this.emit('message', number);
+      ++this.successful;
+      this.wait(this.options.interval || 5000);
+    }
+
+    this.browser.close();
+    this.emit('end', this.generateResults());
+  }
+
+  private wait(ms: number) {
+    return new Promise(res => setTimeout(res, ms));
+  }
+
+  private generateResults() {
+    return {
+      total: this.options.numbers.length,
+      successful: this.successful,
+      failed: this.failed
+    };
   }
 }
