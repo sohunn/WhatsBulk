@@ -1,14 +1,14 @@
-import { BulkMessagerConfig } from "./types";
 import { Browser, launch } from 'puppeteer';
 import { EventEmitter } from 'events';
+import { BulkMessengerConfig } from '..';
 
 export default class BulkMessenger extends EventEmitter {
-  public readonly options: BulkMessagerConfig;
+  public readonly options: BulkMessengerConfig;
   protected browser!: Browser;
   private successful = 0;
   private failed = 0;
 
-  constructor(options: BulkMessagerConfig) {
+  constructor(options: BulkMessengerConfig) {
     super();
 
     if (options.message.length === 0) {
