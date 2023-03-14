@@ -23,7 +23,7 @@ export class BulkMessenger extends EventEmitter {
   }
 
   public async start() {
-    this.browser = await launch();
+    this.browser = await launch({ headless: false });
     const page = await this.browser.newPage();
 
     let payloadURL: string;
@@ -35,7 +35,7 @@ export class BulkMessenger extends EventEmitter {
       try {
         await page.waitForSelector(this.options.selector, { timeout: this.options.selectorWaitTimeout || 30000 });
       } catch (err) {
-        this.emit('error', `Wait for specified selector timed out (>${this.options.selectorWaitTimeout || 30000}ms) skipping...`, err);
+        this.emit('error', err);
         ++this.failed;
         continue;
       }
@@ -43,7 +43,7 @@ export class BulkMessenger extends EventEmitter {
       page.keyboard.press('Enter');
       this.emit('message', number);
       ++this.successful;
-      this.wait(this.options.interval || 5000);
+      await this.wait(this.options.interval || 5000);
     }
 
     this.browser.close();

@@ -1,3 +1,5 @@
+import { TimeoutError } from "puppeteer";
+
 export type BulkMessengerConfig = {
   /**
    * An array of strings representing phone numbers.
@@ -29,7 +31,7 @@ export type BulkMessengerConfig = {
 }
 
 export interface BulkMessengerEvents {
-  error: [message: string, error: Error],
+  error: [error: TimeoutError],
   message: [phoneNumber: string],
   end: [status: { total: number, failed: number, successful: number }]
 }
