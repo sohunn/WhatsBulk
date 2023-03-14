@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for showing your interest in this project! Before you make any contributions, a few things are required.
+Thanks for showing your interest in this project! Before you make any contributions, ensure that:
 
 - Code must match the existing code style. Make sure to run `npm run lint` as this will help you check!
 
