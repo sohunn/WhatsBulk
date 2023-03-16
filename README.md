@@ -33,7 +33,7 @@ messenger.start();
 ```
 
 ## BulkMessenger Config
-```js
+```ts
 {
   /**
    * An array of strings representing phone numbers.
