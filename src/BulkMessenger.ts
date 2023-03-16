@@ -35,7 +35,7 @@ export class BulkMessenger extends EventEmitter {
       try {
         await page.waitForSelector(this.options.selector, { timeout: this.options.selectorWaitTimeout || 30000 });
       } catch (err) {
-        this.emit('error', err);
+        this.emit('error', err, number);
         ++this.failed;
         continue;
       }

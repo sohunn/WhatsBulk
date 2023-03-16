@@ -13,7 +13,7 @@ export type BulkMessengerConfig = {
   message: string
 
   /**
-   * The selector which the BulkMessenger needs to wait for before sending the message.
+   *  The HTML selector which the BulkMessenger needs to wait to appear in the DOM before sending the message.
    */
   selector: string
 
@@ -31,7 +31,7 @@ export type BulkMessengerConfig = {
 }
 
 export interface BulkMessengerEvents {
-  error: [error: TimeoutError],
+  error: [error: TimeoutError, phoneNumber: string],
   message: [phoneNumber: string],
   end: [status: { total: number, failed: number, successful: number }]
 }

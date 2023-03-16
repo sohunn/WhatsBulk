@@ -2,10 +2,10 @@
 
 Thanks for showing your interest in this project! Before you make any contributions, ensure that:
 
-- Code must match the existing code style. Make sure to run `npm run lint` as this will help you check!
+- The code matches the existing code style. Running `npm run lint` will help you check!
 
-- Feel free to create issues to discuss changes/additions you wish to make before working on them.
+- You create issues to discuss changes/additions before working on them.
 
-- Make sure there are no active pull requests that have already implemented the changes/additions you wish to add.
+- There are no active pull requests that have already implemented the changes/additions you wish to add.
 
-- Pull requests should point to the development branch (`dev`) and not the master (`master`) branch.
+- Pull requests point to the development branch (`dev`) and not the master (`master`) branch.
