@@ -56,13 +56,13 @@ messenger.start();
    * Amount of time in milliseconds after which the BulkMessenger considers the selector to be invalid.
    * Defaults to 30 seconds if unspecified
    */
-  selectorWaitTimeout?: number
+  selectorWaitTimeout: number
 
   /**
    * Amount of time in milliseconds after which the BulkMessenger proceeds to the next iteration. (next phone number)
    * Defaults to 5 seconds if unspecified
    */
-  interval?: number
+  interval: number
 }
 ```
 
