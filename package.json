@@ -1,12 +1,13 @@
 {
   "name": "whatsbulk",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Send messages in bulk to multiple users on WhatsApp using just a phone number!",
   "main": "./dist/index.js",
   "types": "./dist",
   "scripts": {
     "lint": "eslint . --ext .ts --fix",
-    "build": "del /q /s /f dist && npm run lint && tsc"
+    "build": "del /q /s /f dist && npm run lint && tsc",
+    "prepublish": "npm run build"
   },
   "repository": {
     "type": "git",
