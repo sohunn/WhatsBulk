@@ -1,6 +1,6 @@
 {
   "name": "whatsbulk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Send messages in bulk to multiple users on WhatsApp using just a phone number!",
   "main": "./dist/index.js",
   "types": "./dist",
