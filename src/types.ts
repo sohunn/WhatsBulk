@@ -30,6 +30,12 @@ export type BulkMessengerConfig = {
   interval?: number
 }
 
+export type BulkMessengerResults = {
+  successful: number
+  failed: number
+  total: number
+}
+
 export interface BulkMessengerEvents {
   error: [error: TimeoutError, phoneNumber: string],
   message: [phoneNumber: string],

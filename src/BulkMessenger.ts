@@ -1,6 +1,6 @@
 import { Browser, launch } from 'puppeteer';
 import { EventEmitter } from 'events';
-import { BulkMessengerConfig } from './types';
+import { BulkMessengerConfig, BulkMessengerResults } from './types';
 
 export class BulkMessenger extends EventEmitter {
   public readonly options: BulkMessengerConfig;
@@ -54,7 +54,7 @@ export class BulkMessenger extends EventEmitter {
     return new Promise(res => setTimeout(res, ms));
   }
 
-  private generateResults() {
+  private generateResults(): BulkMessengerResults {
     return {
       total: this.options.numbers.length,
       successful: this.successful,
