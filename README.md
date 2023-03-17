@@ -38,6 +38,9 @@ WhatsApp web generates random strings for its classes, so there is no universal 
 
 If a number is invalid, do not do anything, the library automatically invalidates the number and moves to the next iteration.
 
+## Motivation
+I was in a situation where I had to add about 50 members to a WhatsApp group. Saving 50 numbers from a plain text file to my phone one by one and then addding them sounded like a very huge task and a waste of my ✨ precious time ✨. WhatsApp doesn't provide an API which could do this. As a result, I decided to automate this process by getting somewhat the same functionality, which was to send individual messages and include the invite to the group within the message. That way, it also ensured people who were still interested joined. This was successful where I could get all members joining. I built a private version of this which worked just for those 50 numbers. Eventually, I thought a lot of people would find this really useful and yeah, you're reading this because of that cool thought of mine :D
+
 ## BulkMessenger Config
 ```ts
 type BulkMessengerConfig = {
