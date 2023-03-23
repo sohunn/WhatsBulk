@@ -1,4 +1,4 @@
-# WhatsBulk
+# WhatsBulk [![NPM](https://img.shields.io/badge/-WhatsBulk-CB3837?logo=npm&style=flat&labelColor=ffffff)](https://www.npmjs.com/package/whatsbulk)
 
 A simple library to send messages in bulk to multiple users on WhatsApp using just a phone number!
 
