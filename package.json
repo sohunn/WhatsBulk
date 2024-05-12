@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enigma0884/WhatsBulk.git"
+    "url": "git+https://github.com/sohunn/WhatsBulk.git"
   },
   "keywords": [
     "bulkmessage",
@@ -20,9 +20,9 @@
   "author": "Sohan Shashikumar",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/enigma0884/WhatsBulk/issues"
+    "url": "https://github.com/sohunn/WhatsBulk/issues"
   },
-  "homepage": "https://github.com/enigma0884/WhatsBulk#readme",
+  "homepage": "https://github.com/sohunn/WhatsBulk#readme",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.53.0",
     "@typescript-eslint/parser": "^5.53.0",
